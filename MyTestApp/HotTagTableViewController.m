@@ -13,7 +13,8 @@
 @interface HotTagTableViewController ()<UISearchBarDelegate, MessageBLDelegate, UITableViewDelegate, UITableViewDataSource>
 {
     NSMutableArray<MessageItem *>* msgArray;
-    UITableView *tableView;
+    UITableView *aTableView;
+    UISearchBar *aSearchBar;
 }
 @end
 
@@ -21,32 +22,46 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    UITapGestureRecognizer *tapGr = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(viewTapped:)];
+    tapGr.cancelsTouchesInView = NO;
+    [self.view addGestureRecognizer:tapGr];
 
     self.title = @"HOT";
     [self addSearchBar];
     [self addTableView];
 }
 
+- (void)viewTapped:(UITapGestureRecognizer*)tapGr
+{
+    [aSearchBar resignFirstResponder];
+}
+
 - (void) addSearchBar
 {
-    UISearchBar *searchBar = [[UISearchBar alloc] init];
-    searchBar.frame = CGRectMake(0, 50, [UIScreen mainScreen].bounds.size.width, 20);
-    [searchBar sizeToFit];
-    searchBar.delegate = self;
-    [self.view addSubview:searchBar];
+    aSearchBar = [[UISearchBar alloc] init];
+    aSearchBar.frame = CGRectMake(0, 60, [UIScreen mainScreen].bounds.size.width, 20);
+    [aSearchBar sizeToFit];
+    aSearchBar.delegate = self;
+    [self.view addSubview:aSearchBar];
 }
 
 - (void) addTableView
 {
-    tableView = [[UITableView alloc] init];
-    tableView.frame = CGRectMake(0, 120, [UIScreen mainScreen].bounds.size.width, 300);
-    tableView.delegate = self;
-    tableView.dataSource = self;
-    [self.view addSubview:tableView];
+    aTableView = [[UITableView alloc] init];
+    aTableView.frame = CGRectMake(0, 120, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height);
+    aTableView.delegate = self;
+    aTableView.dataSource = self;
+    [self.view addSubview:aTableView];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
+}
+
+- (void)tableView:(UITableView *)tableView
+didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [tableView deselectRowAtIndexPath:indexPath animated:true];
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -72,18 +87,29 @@
 - (void)getHashTagMessages:(NSMutableArray<MessageItem *> *)m_array
 {
     msgArray = m_array;
-    [tableView reloadData];
+    [aTableView reloadData];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [[MsgUITableViewCell alloc] init:0 item:msgArray[indexPath.row] reuseIdentifiler:@"new"];
-    
-    return cell;
+    if(msgArray.count == 0)
+    {
+        UITableViewCell *cell = [[UITableViewCell alloc] init];
+        return cell;
+    }
+    else
+    {
+        UITableViewCell *cell = [[MsgUITableViewCell alloc] init:0 item:msgArray[indexPath.row] reuseIdentifiler:@"new"];
+        return cell;
+    }
 }
 
-- (void)searchBar:(UISearchBar *)searchBar activate:(BOOL) active{
-    
+-(NSIndexPath *)tableView:(UITableView *)tableView
+ willSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [aSearchBar resignFirstResponder];
+    return indexPath;
 }
+
 
 /*
 // Override to support conditional editing of the table view.
