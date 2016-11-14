@@ -1,89 +1,53 @@
 //
-//  HotTagTableViewController.m
+//  AlertSelfInfoTableViewController.m
 //  MyTestApp
 //
-//  Created by Gatsby on 11/12/16.
+//  Created by Gatsby on 11/14/16.
 //  Copyright © 2016 Gatsby. All rights reserved.
 //
 
-#import "HotTagTableViewController.h"
-#import "MessageBL.h"
-#import "MsgUITableViewCell.h"
+#import "AlertSelfInfoTableViewController.h"
 
-@interface HotTagTableViewController ()<UISearchBarDelegate, MessageBLDelegate, UITableViewDelegate, UITableViewDataSource>
-{
-    NSMutableArray<MessageItem *>* msgArray;
-    UITableView *tableView;
-}
+@interface AlertSelfInfoTableViewController ()
+
 @end
 
-@implementation HotTagTableViewController
+@implementation AlertSelfInfoTableViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-
-    self.title = @"HOT";
-    [self addSearchBar];
-    [self addTableView];
-}
-
-- (void) addSearchBar
-{
-    UISearchBar *searchBar = [[UISearchBar alloc] init];
-    searchBar.frame = CGRectMake(0, 50, [UIScreen mainScreen].bounds.size.width, 20);
-    [searchBar sizeToFit];
-    searchBar.delegate = self;
-    [self.view addSubview:searchBar];
-}
-
-- (void) addTableView
-{
-    tableView = [[UITableView alloc] init];
-    tableView.frame = CGRectMake(0, 120, [UIScreen mainScreen].bounds.size.width, 300);
-    tableView.delegate = self;
-    tableView.dataSource = self;
-    [self.view addSubview:tableView];
+    
+    // Uncomment the following line to preserve selection between presentations.
+    // self.clearsSelectionOnViewWillAppear = NO;
+    
+    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
+    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
 }
+
+#pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 1;
-}
-
-- (CGFloat) tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    return [msgArray[indexPath.row] checkingHighOfMsgInLabel];
+    return 0;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return msgArray.count;
+    return 0;
 }
 
-- (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar
-{
-    MessageBL *bl = [[MessageBL alloc] init];
-    bl.delegateForMessagesBL = self;
-    [bl putTheHashTagLinkToBL:searchBar.text];
-}
-
-- (void)getHashTagMessages:(NSMutableArray<MessageItem *> *)m_array
-{
-    msgArray = m_array;
-    [tableView reloadData];
-}
-
+/*
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [[MsgUITableViewCell alloc] init:0 item:msgArray[indexPath.row] reuseIdentifiler:@"new"];
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
+    
+    // Configure the cell...
     
     return cell;
 }
-
-- (void)searchBar:(UISearchBar *)searchBar activate:(BOOL) active{
-    
-}
+*/
 
 /*
 // Override to support conditional editing of the table view.

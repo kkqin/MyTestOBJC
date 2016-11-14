@@ -55,6 +55,7 @@
     UIBarButtonItem *sendbtn = [[UIBarButtonItem alloc] initWithTitle:@"SAY" style:UIBarButtonItemStylePlain target:self action:@selector(turnToSendView)];
     self.navigationItem.rightBarButtonItem = sendbtn;
     
+    [self.navigationController popToRootViewControllerAnimated:true];
     [self addRefresh];
 }
 

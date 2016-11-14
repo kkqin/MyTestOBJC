@@ -11,6 +11,7 @@
 		631A27B81D79C97600F6670E /* MsgUITableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 631A27B71D79C97600F6670E /* MsgUITableViewCell.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		6329660E1D7ADBF000F06AB6 /* HcdGuideViewManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 6329660D1D7ADBF000F06AB6 /* HcdGuideViewManager.m */; };
 		632966101D7ADC6100F06AB6 /* HcdGuideViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6329660F1D7ADC6100F06AB6 /* HcdGuideViewCell.m */; };
+		63298D0E1DD8E77500CA2A87 /* SelfUITableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 63298D0D1DD8E77500CA2A87 /* SelfUITableViewCell.m */; };
 		632BF5761DCD8CD10007C0EC /* SelfDetailTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 632BF5751DCD8CD10007C0EC /* SelfDetailTableViewController.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		632CAC721D7B03840045FB48 /* DetailUITableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 632CAC711D7B03840045FB48 /* DetailUITableViewController.m */; };
 		632CACA21D7B53150045FB48 /* KILabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 632CACA11D7B53150045FB48 /* KILabel.m */; };
@@ -19,6 +20,8 @@
 		632CACE31D7BDBE40045FB48 /* MessageBL.m in Sources */ = {isa = PBXBuildFile; fileRef = 632CACE21D7BDBE40045FB48 /* MessageBL.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		632CACE61D7BDC130045FB48 /* MessageItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 632CACE51D7BDC130045FB48 /* MessageItem.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		632E4D5C1DCF72500088B9C4 /* TabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 632E4D5B1DCF72500088B9C4 /* TabBarViewController.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		6333D46F1DD9253F0028DB3E /* AlertSelfInfoTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6333D46E1DD9253F0028DB3E /* AlertSelfInfoTableViewController.m */; };
+		633874061DD798C60005798A /* HotTagDetailTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 633874051DD798C60005798A /* HotTagDetailTableViewController.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		6352EA4E1D72D4CD00C4EFE3 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6352EA4D1D72D4CD00C4EFE3 /* main.m */; };
 		6352EA511D72D4CD00C4EFE3 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6352EA501D72D4CD00C4EFE3 /* AppDelegate.m */; };
 		6352EA541D72D4CD00C4EFE3 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6352EA531D72D4CD00C4EFE3 /* ViewController.m */; };
@@ -30,7 +33,7 @@
 		635AD3F11D788AD800A32BF6 /* MyNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 635AD3F01D788AD800A32BF6 /* MyNavigationController.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		6361EE311D7EA9D600719258 /* SendViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6361EE301D7EA9D600719258 /* SendViewController.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		6361EE341D7EC64500719258 /* PersonInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6361EE331D7EC64500719258 /* PersonInfoViewController.m */; };
-		63915D751DD6E4B200915DF5 /* HotTagTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 63915D741DD6E4B200915DF5 /* HotTagTableViewController.m */; };
+		63915D751DD6E4B200915DF5 /* HotTagTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 63915D741DD6E4B200915DF5 /* HotTagTableViewController.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		63B975711D7FE59A00EE6936 /* UserItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 63B975701D7FE59A00EE6936 /* UserItem.m */; };
 		63B975741D7FE74400EE6936 /* UserBL.m in Sources */ = {isa = PBXBuildFile; fileRef = 63B975731D7FE74400EE6936 /* UserBL.m */; };
 		63B975891D8007B900EE6936 /* LoginTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 63B975881D8007B900EE6936 /* LoginTableViewController.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -71,6 +74,8 @@
 		6329660C1D7ADBEC00F06AB6 /* HcdGuideViewManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HcdGuideViewManager.h; sourceTree = "<group>"; };
 		6329660D1D7ADBF000F06AB6 /* HcdGuideViewManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HcdGuideViewManager.m; sourceTree = "<group>"; };
 		6329660F1D7ADC6100F06AB6 /* HcdGuideViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HcdGuideViewCell.m; sourceTree = "<group>"; };
+		63298D0C1DD8E77500CA2A87 /* SelfUITableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelfUITableViewCell.h; sourceTree = "<group>"; };
+		63298D0D1DD8E77500CA2A87 /* SelfUITableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelfUITableViewCell.m; sourceTree = "<group>"; };
 		632BF5741DCD8CD10007C0EC /* SelfDetailTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelfDetailTableViewController.h; sourceTree = "<group>"; };
 		632BF5751DCD8CD10007C0EC /* SelfDetailTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelfDetailTableViewController.m; sourceTree = "<group>"; };
 		632CAC701D7B03840045FB48 /* DetailUITableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DetailUITableViewController.h; path = MyTestApp/DetailUITableViewController.h; sourceTree = "<group>"; };
@@ -87,6 +92,10 @@
 		632CACE51D7BDC130045FB48 /* MessageItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessageItem.m; sourceTree = "<group>"; };
 		632E4D5A1DCF72500088B9C4 /* TabBarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TabBarViewController.h; sourceTree = "<group>"; };
 		632E4D5B1DCF72500088B9C4 /* TabBarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TabBarViewController.m; sourceTree = "<group>"; };
+		6333D46D1DD9253F0028DB3E /* AlertSelfInfoTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AlertSelfInfoTableViewController.h; sourceTree = "<group>"; };
+		6333D46E1DD9253F0028DB3E /* AlertSelfInfoTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AlertSelfInfoTableViewController.m; sourceTree = "<group>"; };
+		633874041DD798C50005798A /* HotTagDetailTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HotTagDetailTableViewController.h; sourceTree = "<group>"; };
+		633874051DD798C60005798A /* HotTagDetailTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HotTagDetailTableViewController.m; sourceTree = "<group>"; };
 		6352EA491D72D4CD00C4EFE3 /* MyTestApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyTestApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6352EA4D1D72D4CD00C4EFE3 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		6352EA4F1D72D4CD00C4EFE3 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -167,6 +176,8 @@
 				632BF5741DCD8CD10007C0EC /* SelfDetailTableViewController.h */,
 				632E4D5A1DCF72500088B9C4 /* TabBarViewController.h */,
 				63915D731DD6E4B200915DF5 /* HotTagTableViewController.h */,
+				633874041DD798C50005798A /* HotTagDetailTableViewController.h */,
+				6333D46D1DD9253F0028DB3E /* AlertSelfInfoTableViewController.h */,
 			);
 			name = CutsomH;
 			sourceTree = "<group>";
@@ -223,6 +234,8 @@
 				632966091D7ADBB600F06AB6 /* HcdGuideView */,
 				631A27B61D79C97600F6670E /* MsgUITableViewCell.h */,
 				631A27B71D79C97600F6670E /* MsgUITableViewCell.m */,
+				63298D0C1DD8E77500CA2A87 /* SelfUITableViewCell.h */,
+				63298D0D1DD8E77500CA2A87 /* SelfUITableViewCell.m */,
 			);
 			name = View;
 			path = ..;
@@ -242,6 +255,8 @@
 				632BF5751DCD8CD10007C0EC /* SelfDetailTableViewController.m */,
 				632E4D5B1DCF72500088B9C4 /* TabBarViewController.m */,
 				63915D741DD6E4B200915DF5 /* HotTagTableViewController.m */,
+				633874051DD798C60005798A /* HotTagDetailTableViewController.m */,
+				6333D46E1DD9253F0028DB3E /* AlertSelfInfoTableViewController.m */,
 			);
 			name = Control;
 			path = ..;
@@ -569,6 +584,7 @@
 			files = (
 				63CF90951D77448F00D47053 /* MainUITableViewController.m in Sources */,
 				6352EA541D72D4CD00C4EFE3 /* ViewController.m in Sources */,
+				6333D46F1DD9253F0028DB3E /* AlertSelfInfoTableViewController.m in Sources */,
 				63B9758D1D8008EF00EE6936 /* NameTableViewCell.m in Sources */,
 				6352EA511D72D4CD00C4EFE3 /* AppDelegate.m in Sources */,
 				632E4D5C1DCF72500088B9C4 /* TabBarViewController.m in Sources */,
@@ -576,8 +592,10 @@
 				63B975741D7FE74400EE6936 /* UserBL.m in Sources */,
 				63B975891D8007B900EE6936 /* LoginTableViewController.m in Sources */,
 				631A27B81D79C97600F6670E /* MsgUITableViewCell.m in Sources */,
+				63298D0E1DD8E77500CA2A87 /* SelfUITableViewCell.m in Sources */,
 				632CACDF1D7BC7710045FB48 /* JSONKit.m in Sources */,
 				6361EE311D7EA9D600719258 /* SendViewController.m in Sources */,
+				633874061DD798C60005798A /* HotTagDetailTableViewController.m in Sources */,
 				632BF5761DCD8CD10007C0EC /* SelfDetailTableViewController.m in Sources */,
 				6361EE341D7EC64500719258 /* PersonInfoViewController.m in Sources */,
 				6352EA4E1D72D4CD00C4EFE3 /* main.m in Sources */,

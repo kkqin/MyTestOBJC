@@ -73,7 +73,7 @@
     
     if(indexPath.section == 2)
     {
-         ButtonTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:buttoncelstyle];
+        ButtonTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:buttoncelstyle];
         if(indexPath.row == 0)
         {
             cell.lbutton.backgroundColor = [UIColor purpleColor];
@@ -85,7 +85,6 @@
             [cell.lbutton setTitle:@"SIGN IN" forState:UIControlStateNormal];
         }
         
-        //[cell.lbutton addTarget:self action:@selector(toParticularView) forControlEvents:UIControlEventTouchUpInside];
         [cell.lbutton addTarget:self action:@selector(toParticularView:) forControlEvents:UIControlEventTouchUpInside];
         return cell;
     }
@@ -103,11 +102,6 @@
 {
     if([btn.titleLabel.text  isEqual: @"SIGN IN"])
     {
-        MyNavigationController *mainTableC;
-        //mainTableC = [[MyNavigationController alloc] initWithRootViewController:[[MainUITableViewController alloc] init]];
-        //mainTableC.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
-        //[self presentViewController:mainTableC animated:true completion:nil];
-        
         TabBarViewController *tbC = [[TabBarViewController alloc] init];
         [self presentViewController:tbC animated:true completion:nil];
     }

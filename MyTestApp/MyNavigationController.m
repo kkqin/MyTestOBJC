@@ -10,6 +10,7 @@
 #import <QuartzCore/QuartzCore.h>
 #import "PersonInfoViewController.h"
 #import "SelfDetailTableViewController.h"
+#import "HotTagDetailTableViewController.h"
 
 @implementation MyNavigationController
 {
@@ -20,10 +21,10 @@
 {
     [super viewDidLoad];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(turnToSelfDetailViewCtrl:) name:@"AskUserHandlerLink" object:nil];
-    //[self addHeadPic];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(turnToHashTagDetailViewCtrl:) name:@"AskHashTagLink" object:nil];
 }
 
-- (void)pushViewController:(UIViewController *)viewController animated:(BOOL)animated
+- (void) pushViewController:(UIViewController *)viewController animated:(BOOL)animated
 {
     [super pushViewController:viewController animated:animated];
 }
@@ -44,7 +45,6 @@
 
 - (void) tapheadImage
 {
-  
     [UIView animateKeyframesWithDuration:0.2 delay:0 options:UIViewKeyframeAnimationOptionAllowUserInteraction animations:^{
         headImage.backgroundColor = [UIColor grayColor];
     } completion:^(BOOL finished) {
@@ -69,7 +69,14 @@
     NSString *str = [notification object];//通过这个获取到传递的对象
     SelfDetailTableViewController *sDetail = [[SelfDetailTableViewController alloc] init:str];
     [self pushViewController:sDetail animated:true];
+    self.tabBarController.tabBar.hidden = true;
 }
 
+-(void) turnToHashTagDetailViewCtrl:(NSNotification*) notification
+{
+    NSString *str = [notification object];
+    HotTagDetailTableViewController *hDetail = [[HotTagDetailTableViewController alloc] init:str];
+    [self pushViewController:hDetail animated:true];
+}
 
 @end

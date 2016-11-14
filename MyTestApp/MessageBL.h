@@ -15,6 +15,7 @@
 @optional
 - (void) getAllMessages:(NSMutableArray<MessageItem *> *)m_array :(NSString*)str;
 - (void) getUserMessages:(NSMutableArray<MessageItem *> *)m_array;
+- (void) getHashTagMessages:(NSMutableArray<MessageItem *> *)m_array;
 @end
 
 @interface MessageBL : NSObject<NetWorkDelegateForMessagesInfo>
@@ -26,6 +27,7 @@
 - (void) getAllMessagesBL;
 - (void) putOneselfMessageToBL:(MessageItem *)one_m_item;
 - (void) putTheHandlerLinkToBL:(NSString *)userHandlerLink;
+- (void) putTheHashTagLinkToBL:(NSString *)hashTag;
 @end
 
 #endif /* MessageBL_h */

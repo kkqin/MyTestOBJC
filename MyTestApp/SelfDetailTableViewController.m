@@ -9,10 +9,12 @@
 #import "SelfDetailTableViewController.h"
 #import "MsgUITableViewCell.h"
 #import "DetailUITableViewController.h"
+#import "SelfUITableViewCell.h"
 
 @interface SelfDetailTableViewController ()
 {
     NSString *handler;
+    NSString *cellStyle;
 }
 @end
 
@@ -27,20 +29,51 @@
     return self;
 }
 
+- (void) viewWillDisappear:(BOOL)animated
+{
+    self.tabBarController.tabBar.hidden = false;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(turnToFollowerDetailViewCtrl:) name:@"AskFollowerDetailView" object:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(turnToFollowingDetailViewCtrl:) name:@"AskFolloingDetailView" object:nil];
+    
+    cellStyle = @"default";
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     
-    MessageBL * mbl = [[MessageBL alloc] retain] ;
+    MessageBL * mbl = [[MessageBL alloc] retain];
     mbl.delegateForMessagesBL = self;
     [mbl putTheHandlerLinkToBL:handler];
     
     self.title = @"SELF";
-
     [self.tableView registerClass:[MsgUITableViewCell class] forCellReuseIdentifier:@"new"];
     [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"original"];
+    [self.tableView registerClass:[SelfUITableViewCell class] forCellReuseIdentifier:@"selfui"];
+    [self.tableView registerNib:[UINib nibWithNibName:@"ForSelfDetailTableViewCell" bundle:nil] forCellReuseIdentifier:cellStyle];
+}
+
+- (void) turnToFollowerDetailViewCtrl:(NSNotification *)notification
+{
+    NSLog(@"should turn to follower detail view.");
+}
+
+- (void) turnToFollowingDetailViewCtrl:(NSNotification *)notification
+{
+    NSLog(@"should turn to following detail view.");
+}
+
+- (void)gestrueDo
+{
+    
+}
+
+- (void) longPressFunc:(UILongPressGestureRecognizer *)geture
+{
+    NSLog(@"kkkk");
 }
 
 - (void)didReceiveMemoryWarning {
@@ -56,12 +89,18 @@
 didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [self.tableView deselectRowAtIndexPath:indexPath animated:true];
-    
-    DetailViewController *detailTableC = [[DetailViewController alloc] init:self.msgArray[indexPath.row]];
-    detailTableC.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
-    [self.navigationController pushViewController:detailTableC animated:true];
+    if(indexPath.section == 0)
+    {
+        UIViewController *blank = [[UIViewController alloc] init];
+        [self.navigationController pushViewController:blank animated:true];
+    }
+    else
+    {
+        DetailViewController *detailTableC = [[DetailViewController alloc] init:self.msgArray[indexPath.row]];
+        detailTableC.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
+        [self.navigationController pushViewController:detailTableC animated:true];
+    }
 }
-
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     if (section == 0)
@@ -101,8 +140,7 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     if(indexPath.section == 0)
     {
-        UITableViewCell *cell = [[UITableViewCell alloc] init];
-        cell.backgroundColor = [UIColor lightGrayColor];
+        UITableViewCell *cell = [[SelfUITableViewCell alloc] init];
         return cell;
     }
     else

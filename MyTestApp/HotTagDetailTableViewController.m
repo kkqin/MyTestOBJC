@@ -1,88 +1,75 @@
 //
-//  HotTagTableViewController.m
+//  HotTagDetailTableViewController.m
 //  MyTestApp
 //
-//  Created by Gatsby on 11/12/16.
+//  Created by Gatsby on 11/13/16.
 //  Copyright © 2016 Gatsby. All rights reserved.
 //
 
-#import "HotTagTableViewController.h"
-#import "MessageBL.h"
+#import "HotTagDetailTableViewController.h"
 #import "MsgUITableViewCell.h"
 
-@interface HotTagTableViewController ()<UISearchBarDelegate, MessageBLDelegate, UITableViewDelegate, UITableViewDataSource>
+@interface HotTagDetailTableViewController ()
 {
-    NSMutableArray<MessageItem *>* msgArray;
-    UITableView *tableView;
+    NSString *hashTag;
 }
 @end
 
-@implementation HotTagTableViewController
+@implementation HotTagDetailTableViewController
+
+- (instancetype) init:(NSString *)hashTagLink
+{
+    self = [super init];
+    
+    hashTag = hashTagLink;
+    MessageBL *bl = [[MessageBL alloc] init];
+    bl.delegateForMessagesBL = self;
+    [bl putTheHashTagLinkToBL:hashTag];
+ 
+    self.title = hashTag;
+    
+    self.tableView.delegate = self;
+    self.tableView.dataSource = self;
+    
+    [self.tableView registerClass:[MsgUITableViewCell class] forCellReuseIdentifier:@"new"];
+    
+    return self;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-
-    self.title = @"HOT";
-    [self addSearchBar];
-    [self addTableView];
-}
-
-- (void) addSearchBar
-{
-    UISearchBar *searchBar = [[UISearchBar alloc] init];
-    searchBar.frame = CGRectMake(0, 50, [UIScreen mainScreen].bounds.size.width, 20);
-    [searchBar sizeToFit];
-    searchBar.delegate = self;
-    [self.view addSubview:searchBar];
-}
-
-- (void) addTableView
-{
-    tableView = [[UITableView alloc] init];
-    tableView.frame = CGRectMake(0, 120, [UIScreen mainScreen].bounds.size.width, 300);
-    tableView.delegate = self;
-    tableView.dataSource = self;
-    [self.view addSubview:tableView];
+    
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
 }
+
+#pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return 1;
 }
 
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return _msgArray.count;
+}
+
 - (CGFloat) tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return [msgArray[indexPath.row] checkingHighOfMsgInLabel];
+    return [self.msgArray[indexPath.row] checkingHighOfMsgInLabel];
 }
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return msgArray.count;
-}
-
-- (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar
+- (void) getHashTagMessages:(NSMutableArray<MessageItem *> *)m_array
 {
-    MessageBL *bl = [[MessageBL alloc] init];
-    bl.delegateForMessagesBL = self;
-    [bl putTheHashTagLinkToBL:searchBar.text];
-}
-
-- (void)getHashTagMessages:(NSMutableArray<MessageItem *> *)m_array
-{
-    msgArray = m_array;
-    [tableView reloadData];
+    _msgArray = m_array;
+    [self.tableView reloadData];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [[MsgUITableViewCell alloc] init:0 item:msgArray[indexPath.row] reuseIdentifiler:@"new"];
-    
+    UITableViewCell *cell = [[MsgUITableViewCell alloc] init:0 item:self.msgArray[indexPath.row] reuseIdentifiler:@"new"];
     return cell;
-}
-
-- (void)searchBar:(UISearchBar *)searchBar activate:(BOOL) active{
-    
 }
 
 /*

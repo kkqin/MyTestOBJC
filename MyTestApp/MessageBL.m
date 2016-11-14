@@ -51,4 +51,17 @@
 {
     [self.delegateForMessagesBL getUserMessages:m_array];
 }
+
+- (void) putTheHashTagLinkToBL:(NSString *)hashTag
+{
+    _network = [[NetWork alloc] retain];
+    _network.delegateForMessagesNet = self;
+    [self.network getSameAboutHashTag:hashTag];
+}
+
+- (void) getHashTagMessageFinishNetWork:(NSMutableArray<MessageItem *> *)m_array
+{
+    [self.delegateForMessagesBL getHashTagMessages:m_array];
+}
+
 @end

@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface HotTagTableViewController : UITableViewController
+@interface HotTagTableViewController : UIViewController
 
 @end

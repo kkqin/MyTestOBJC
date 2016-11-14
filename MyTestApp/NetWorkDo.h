@@ -18,6 +18,7 @@
 @optional
 -(void) getMessageFinishNetWork:(NSMutableArray<MessageItem *> *)m_array :(NSString *)str;
 -(void) getUserMessageFinishNetWork:(NSMutableArray<MessageItem *> *)m_array;
+-(void) getHashTagMessageFinishNetWork:(NSMutableArray<MessageItem *> *)m_array;
 @end
 
 @interface NetWork : NSObject
@@ -33,5 +34,6 @@
 - (void) putOneselfMessageToNetWork:(MessageItem *)m_item;
 //- (void) putOneselfMessageImageToNetWork:( *)image;
 - (void) registerUserRequestToNetWork:(UserItem *)user_item;
+- (void) getSameAboutHashTag:(NSString *)hashTagLink;
 
 @end

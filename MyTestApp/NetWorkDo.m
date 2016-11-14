@@ -59,9 +59,38 @@
     }];
 }
 
-- (void) getSameAboutHashTag:(NSString*)hashTag
+- (void) getSameAboutHashTag:(NSString*)hashTagLink
 {
+    NSURL *URL = [NSURL URLWithString:@"http://127.0.0.1/ios/apptest/getHashTagMessage.php"];
+    AFHTTPSessionManager *manager = [[AFHTTPSessionManager manager] init];
 
+    manager.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"text/html"];
+    
+    NSMutableDictionary *parametersDictionary = [NSMutableDictionary dictionary];
+    [parametersDictionary setObject:hashTagLink forKey:@"u_hashTagLink"];
+    
+    [manager GET:URL.absoluteString parameters:parametersDictionary progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        NSLog(@"success! |||||||-- %@ --|||||||", responseObject);
+        
+        NSMutableArray *jsondata = [responseObject mutableCopy];
+        
+        self.r_array = [[NSMutableArray alloc] init];
+        for(int i = 0; i < jsondata.count; i++)
+        {
+            MessageItem *m_item = [[[MessageItem alloc] init:jsondata[i]] retain];
+            [self.r_array addObject:m_item];
+            [m_item release];
+        }
+        NSLog(@"same about the hashTag: %@", _r_array);
+        
+        // 异步
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self.delegateForMessagesNet getHashTagMessageFinishNetWork:_r_array];
+        });
+        
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        NSLog(@"error: EEEEEE-- %@ --EEEEEE", error);
+    }];
 }
 
 - (void) getUserHandlerLink:(NSString*)userHandlerLink

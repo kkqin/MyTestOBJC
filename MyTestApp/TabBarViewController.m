@@ -26,18 +26,19 @@
     vc1.title = @"HOME";
     vc1.tabBarItem.image = [UIImage imageNamed:@"home.png"];
     
-    MyNavigationController *vc2 = [[MyNavigationController alloc] initWithRootViewController:[[HotTagTableViewController alloc] init]];
+    UINavigationController *vc2 = [[UINavigationController alloc] initWithRootViewController:[[HotTagTableViewController alloc] init]];
     vc2.title = @"DISCOVER";
     vc2.tabBarItem.image = [UIImage imageNamed:@"discover.png"];
     UITabBarController *tabBarCtrl = [[UITabBarController alloc] init];
     
-    MyNavigationController *vc3 = [[MyNavigationController alloc] initWithRootViewController:[[SelfDetailTableViewController alloc] init:@"@admin"]];
+    UINavigationController *vc3 = [[UINavigationController alloc] initWithRootViewController:[[SelfDetailTableViewController alloc] init:@"@admin"]];
     vc3.title = @"ME";
     vc3.tabBarItem.image = [UIImage imageNamed:@"user.png"];
     tabBarCtrl.view.backgroundColor = [UIColor cyanColor];
     
     tabBarCtrl.viewControllers = @[vc1, vc2, vc3];
     [self setViewControllers:tabBarCtrl.viewControllers animated:true];
+    //self.tabBar.hidden = true;
 }
 
 - (void)didReceiveMemoryWarning {

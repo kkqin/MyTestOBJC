@@ -7,6 +7,7 @@
 //
 
 #import "MsgUITableViewCell.h"
+#import "MyNavigationController.h"
 
 @implementation MsgUITableViewCell
 {
@@ -90,7 +91,7 @@
     };
     
     _lmessage.hashtagLinkTapHandler = ^(KILabel *label, NSString *string, NSRange range) {
-        NSLog(@"Hashtag tapped %@", string);
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"AskHashTagLink" object:string];
     };
     
     if(type == (NSInteger *)1)
