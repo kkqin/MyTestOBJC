@@ -66,8 +66,8 @@
         {
             cell.textfiled.placeholder = @"password";
             cell.textfiled.secureTextEntry = true;
-            
         }
+        
         return cell;
     }
     
@@ -79,6 +79,7 @@
             cell.lbutton.backgroundColor = [UIColor purpleColor];
             [cell.lbutton setTitle:@"SIGN UP" forState:UIControlStateNormal];
         }
+        
         if(indexPath.row == 1)
         {
             cell.lbutton.backgroundColor = [UIColor orangeColor];
@@ -102,6 +103,7 @@
 {
     if([btn.titleLabel.text  isEqual: @"SIGN IN"])
     {
+        NSLog(@"");
         TabBarViewController *tbC = [[TabBarViewController alloc] init];
         [self presentViewController:tbC animated:true completion:nil];
     }

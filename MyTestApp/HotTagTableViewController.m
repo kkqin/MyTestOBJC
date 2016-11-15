@@ -9,6 +9,7 @@
 #import "HotTagTableViewController.h"
 #import "MessageBL.h"
 #import "MsgUITableViewCell.h"
+#import "DetailUITableViewController.h"
 
 @interface HotTagTableViewController ()<UISearchBarDelegate, MessageBLDelegate, UITableViewDelegate, UITableViewDataSource>
 {
@@ -62,6 +63,9 @@
 didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:true];
+    DetailViewController *detailTableC = [[DetailViewController alloc] init:self->msgArray[indexPath.row]];
+    detailTableC.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
+    [self.navigationController pushViewController:detailTableC animated:true];
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -82,6 +86,15 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath
     MessageBL *bl = [[MessageBL alloc] init];
     bl.delegateForMessagesBL = self;
     [bl putTheHashTagLinkToBL:searchBar.text];
+}
+
+- (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText
+{
+    if([searchText isEqualToString:@""])
+    {
+        msgArray = nil;
+        [aTableView reloadData];
+    }
 }
 
 - (void)getHashTagMessages:(NSMutableArray<MessageItem *> *)m_array
@@ -109,7 +122,6 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath
     [aSearchBar resignFirstResponder];
     return indexPath;
 }
-
 
 /*
 // Override to support conditional editing of the table view.

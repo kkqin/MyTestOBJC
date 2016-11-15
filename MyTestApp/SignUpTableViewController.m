@@ -68,7 +68,6 @@
     }
 }
 
-
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
     if(indexPath.section == 0)
@@ -108,7 +107,6 @@
         [self dismissViewControllerAnimated:true completion:nil];
     }
 }
-
 
 /*
 // Override to support conditional editing of the table view.

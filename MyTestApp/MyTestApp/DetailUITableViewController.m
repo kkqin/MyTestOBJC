@@ -9,6 +9,7 @@
 #import "DetailUITableViewController.h"
 #import "MsgUITableViewCell.h"
 #import "SelfDetailTableViewController.h"
+#import "KMMessagView.h"
 
 @implementation DetailViewController
 {
@@ -22,11 +23,19 @@
     return self;
 }
 
+- (void) viewWillDisappear:(BOOL)animated
+{
+    self.tabBarController.tabBar.hidden = false;
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     [self addBar];
     [self addTableView];
+    [self addTextEnter];
+    
+    self.tabBarController.tabBar.hidden = true;
 }
 
 - (void)tableView:(UITableView *)tableView
@@ -113,7 +122,17 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath
     tableviewctl.dataSource = self;
     tableviewctl.bounces = false;
     [self.view addSubview:tableviewctl];
+}
 
+-(void) addTextEnter
+{
+    CGSize size=[UIScreen mainScreen].bounds.size;
+    CGRect boxFrame=CGRectMake(0,size.height, size.width, 45);
+    KMMessagView *messagebox=[[KMMessagView alloc]initWithFrame:boxFrame PlaceText:@"评论" PlaceColor:[UIColor lightGrayColor]];
+    [messagebox sendMessage:^(NSString *txt) {
+        NSLog(@"%@",txt);
+    }];
+    [self.view addSubview:messagebox];
 }
 
 @end
