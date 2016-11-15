@@ -20,8 +20,6 @@
 		632CACE31D7BDBE40045FB48 /* MessageBL.m in Sources */ = {isa = PBXBuildFile; fileRef = 632CACE21D7BDBE40045FB48 /* MessageBL.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		632CACE61D7BDC130045FB48 /* MessageItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 632CACE51D7BDC130045FB48 /* MessageItem.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		632E4D5C1DCF72500088B9C4 /* TabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 632E4D5B1DCF72500088B9C4 /* TabBarViewController.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		6330D43F1DDA6D48002326B8 /* TapMessageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6330D43E1DDA6D48002326B8 /* TapMessageView.m */; };
-		6330D4421DDA6F2C002326B8 /* PlaceHolderTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6330D4411DDA6F2C002326B8 /* PlaceHolderTextView.m */; };
 		6333D46F1DD9253F0028DB3E /* AlertSelfInfoTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6333D46E1DD9253F0028DB3E /* AlertSelfInfoTableViewController.m */; };
 		633874061DD798C60005798A /* HotTagDetailTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 633874051DD798C60005798A /* HotTagDetailTableViewController.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		63404ECB1DDB92AC00DC7F92 /* KMPlaceholderTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 63404EC81DDB92AC00DC7F92 /* KMPlaceholderTextView.m */; };
@@ -96,10 +94,6 @@
 		632CACE51D7BDC130045FB48 /* MessageItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessageItem.m; sourceTree = "<group>"; };
 		632E4D5A1DCF72500088B9C4 /* TabBarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TabBarViewController.h; sourceTree = "<group>"; };
 		632E4D5B1DCF72500088B9C4 /* TabBarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TabBarViewController.m; sourceTree = "<group>"; };
-		6330D43D1DDA6D48002326B8 /* TapMessageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TapMessageView.h; sourceTree = "<group>"; };
-		6330D43E1DDA6D48002326B8 /* TapMessageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TapMessageView.m; sourceTree = "<group>"; };
-		6330D4401DDA6F2C002326B8 /* PlaceHolderTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlaceHolderTextView.h; sourceTree = "<group>"; };
-		6330D4411DDA6F2C002326B8 /* PlaceHolderTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlaceHolderTextView.m; sourceTree = "<group>"; };
 		6333D46D1DD9253F0028DB3E /* AlertSelfInfoTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AlertSelfInfoTableViewController.h; sourceTree = "<group>"; };
 		6333D46E1DD9253F0028DB3E /* AlertSelfInfoTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AlertSelfInfoTableViewController.m; sourceTree = "<group>"; };
 		633874041DD798C50005798A /* HotTagDetailTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HotTagDetailTableViewController.h; sourceTree = "<group>"; };
@@ -252,10 +246,6 @@
 				631A27B71D79C97600F6670E /* MsgUITableViewCell.m */,
 				63298D0C1DD8E77500CA2A87 /* SelfUITableViewCell.h */,
 				63298D0D1DD8E77500CA2A87 /* SelfUITableViewCell.m */,
-				6330D43D1DDA6D48002326B8 /* TapMessageView.h */,
-				6330D43E1DDA6D48002326B8 /* TapMessageView.m */,
-				6330D4401DDA6F2C002326B8 /* PlaceHolderTextView.h */,
-				6330D4411DDA6F2C002326B8 /* PlaceHolderTextView.m */,
 			);
 			name = View;
 			path = ..;
@@ -606,7 +596,6 @@
 				6352EA541D72D4CD00C4EFE3 /* ViewController.m in Sources */,
 				6333D46F1DD9253F0028DB3E /* AlertSelfInfoTableViewController.m in Sources */,
 				63B9758D1D8008EF00EE6936 /* NameTableViewCell.m in Sources */,
-				6330D43F1DDA6D48002326B8 /* TapMessageView.m in Sources */,
 				6352EA511D72D4CD00C4EFE3 /* AppDelegate.m in Sources */,
 				632E4D5C1DCF72500088B9C4 /* TabBarViewController.m in Sources */,
 				632CACA21D7B53150045FB48 /* KILabel.m in Sources */,
@@ -628,7 +617,6 @@
 				632CAC721D7B03840045FB48 /* DetailUITableViewController.m in Sources */,
 				63119B641D810E5B00F419DF /* SignUpTableViewController.m in Sources */,
 				63B975971D800F0900EE6936 /* ButtonTableViewCell.m in Sources */,
-				6330D4421DDA6F2C002326B8 /* PlaceHolderTextView.m in Sources */,
 				635AD3F11D788AD800A32BF6 /* MyNavigationController.m in Sources */,
 				63404ECC1DDB92AC00DC7F92 /* KMMessagView.m in Sources */,
 				6329660E1D7ADBF000F06AB6 /* HcdGuideViewManager.m in Sources */,
