@@ -20,6 +20,8 @@
     _u_name = mdic[@"u_name"];
     _m_type = mdic[@"m_type"];
     _m_pic = mdic[@"m_pic"];
+    _m_relation = mdic[@"m_relate"];
+    _m_id = mdic[@"m_id"];
     
     NSDate *datetime = [[NSDate alloc] init];
     NSDateFormatter *dformatter = [[NSDateFormatter alloc] init];

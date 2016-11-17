@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "MainUITableViewController.h"
 
-@interface DetailViewController : UIViewController<UITableViewDataSource,UITableViewDelegate>
+@interface DetailViewController : UIViewController<UITableViewDataSource,UITableViewDelegate, MessageBLDelegate>
 
 @property NSString *msgdetail;
 @property (nonatomic, strong) UILabel *label;

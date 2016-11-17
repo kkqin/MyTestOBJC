@@ -36,11 +36,11 @@
     [images addObject:[UIImage imageNamed:@"2"]];
     [images addObject:[UIImage imageNamed:@"3"]];
     
-//    [[HcdGuideViewManager sharedInstance] showGuideViewWithImages:images
-//                                                   andButtonTitle:@"开始"
-//                                              andButtonTitleColor:[UIColor whiteColor]
-//                                                 andButtonBGColor:[UIColor clearColor]
-//                                             andButtonBorderColor:[UIColor whiteColor]];
+    [[HcdGuideViewManager sharedInstance] showGuideViewWithImages:images
+                                                   andButtonTitle:@"开始"
+                                              andButtonTitleColor:[UIColor whiteColor]
+                                                 andButtonBGColor:[UIColor clearColor]
+                                             andButtonBorderColor:[UIColor whiteColor]];
 
     
     return YES;

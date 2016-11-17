@@ -93,6 +93,41 @@
     }];
 }
 
+- (void) getTheRelationMsg:(NSString*)relatId
+{
+    NSURL *URL = [NSURL URLWithString:@"http://127.0.0.1/ios/apptest/getRelateMessage.php"];
+    AFHTTPSessionManager *manager = [[AFHTTPSessionManager manager] init];
+    
+    manager.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"text/html"];
+    
+    NSMutableDictionary *parametersDictionary = [NSMutableDictionary dictionary];
+    [parametersDictionary setObject:relatId forKey:@"m_relateId"];
+    
+    [manager GET:URL.absoluteString parameters:parametersDictionary progress:nil success:^(NSURLSessionTask *task, id responseObject) {
+        NSLog(@"success! |||||||-- %@ --|||||||", responseObject);
+        
+        NSMutableArray *jsondata = [responseObject mutableCopy];
+        
+        self.r_array = [[NSMutableArray alloc] init];
+        for(int i = 0; i < jsondata.count; i++)
+        {
+            MessageItem *m_item = [[[MessageItem alloc] init:jsondata[i]] retain];
+            [self.r_array addObject:m_item];
+            [m_item release];
+        }
+        NSLog(@"r_array %@", _r_array);
+        
+        // 异步
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self.delegateForMessagesNet getTheRelationMsgFinishNetWork:_r_array];
+        });
+        
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        NSLog(@"error: EEEEEE-- %@ --EEEEEE", error);
+    }];
+    
+}
+
 - (void) getUserHandlerLink:(NSString*)userHandlerLink
 {
     NSURL *URL = [NSURL URLWithString:@"http://127.0.0.1/ios/apptest/getHandlerUser.php"];
@@ -149,6 +184,7 @@
     [parametersDictionary setObject:m_item.m_msg forKey:@"m_msg"];
     [parametersDictionary setObject:[NSNumber numberWithInt:m_item.m_type] forKey:@"m_type"];
     [parametersDictionary setObject:m_item.m_time forKey:@"m_time"];
+    [parametersDictionary setObject:m_item.m_relation forKey:@"m_relate"];
     //[parametersDictionary setObject:m_item.m_pic forKey:@"m_pic"];
 
     manager.requestSerializer = [AFJSONRequestSerializer serializer];

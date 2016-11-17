@@ -144,6 +144,7 @@
     m_item.m_msg = textview.text;
     m_item.m_time = [dformatter stringFromDate:datetime];
     m_item.m_type = 1;
+    m_item.m_relation = @"";
     m_item.m_pic = [self imageBase64WithDataURL:imageMessage.image];
     
     MessageBL * mbl = [[MessageBL alloc] retain] ;

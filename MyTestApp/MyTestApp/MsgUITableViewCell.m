@@ -11,7 +11,8 @@
 
 @implementation MsgUITableViewCell
 {
-
+    UIButton *forwardBtn;
+    UIButton *likeBtn;
 }
 
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
@@ -55,6 +56,11 @@
     CGFloat messagePicHigh = 100;
     CGFloat messagePicHorizontal_X = messageLabelHorizontal_X;
     CGFloat messagePicVeritcal_Y = messageLabelVertical_Y + 10;
+    
+    CGFloat forwardBtnHorizontal_X = messagePicHorizontal_X;
+    CGFloat likeBtnHorizontal_X = 0;
+    CGFloat forwardBtnVertical_Y = 0;
+    CGFloat likeBtnVertical_Y = 0;
     
     CGFloat fontSize = 25;
     
@@ -125,10 +131,19 @@
         [operationQueue addOperation:op];
     }
     
+//    if(type != (NSInteger *)1)
+//    {
+//        forwardBtn = [[UIButton alloc] init];
+//        likeBtn = [[UIButton alloc] init];
+//        forwardBtn.frame = CGRectMake(forwardBtnHorizontal_X, textRect.size.height + messageLabelVertical_Y + 10, 18, 18);
+//        forwardBtn.backgroundColor = [UIColor redColor];
+//    }
+    
     [self addSubview:_head_image];
     [self addSubview:_name_button];
     [self addSubview:_llabel];
     [self addSubview:_lmessage];
+    //[self addSubview:forwardBtn];
     
     return true;
 }

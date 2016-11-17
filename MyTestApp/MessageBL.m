@@ -64,4 +64,16 @@
     [self.delegateForMessagesBL getHashTagMessages:m_array];
 }
 
+- (void) putTheRelationMsgId:(NSString *)relatId
+{
+    _network = [[NetWork alloc] retain];
+    _network.delegateForMessagesNet = self;
+    [self.network getTheRelationMsg:relatId];
+}
+
+- (void) getTheRelationMsgFinishNetWork:(NSMutableArray<MessageItem *> *)m_array
+{
+    [self.delegateForMessagesBL getTheRelationMessages:m_array];
+}
+
 @end

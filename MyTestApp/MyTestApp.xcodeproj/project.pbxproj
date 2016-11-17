@@ -13,7 +13,7 @@
 		632966101D7ADC6100F06AB6 /* HcdGuideViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6329660F1D7ADC6100F06AB6 /* HcdGuideViewCell.m */; };
 		63298D0E1DD8E77500CA2A87 /* SelfUITableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 63298D0D1DD8E77500CA2A87 /* SelfUITableViewCell.m */; };
 		632BF5761DCD8CD10007C0EC /* SelfDetailTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 632BF5751DCD8CD10007C0EC /* SelfDetailTableViewController.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		632CAC721D7B03840045FB48 /* DetailUITableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 632CAC711D7B03840045FB48 /* DetailUITableViewController.m */; };
+		632CAC721D7B03840045FB48 /* DetailUITableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 632CAC711D7B03840045FB48 /* DetailUITableViewController.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		632CACA21D7B53150045FB48 /* KILabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 632CACA11D7B53150045FB48 /* KILabel.m */; };
 		632CACA61D7B5F750045FB48 /* NetWorkDo.m in Sources */ = {isa = PBXBuildFile; fileRef = 632CACA51D7B5F750045FB48 /* NetWorkDo.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		632CACDF1D7BC7710045FB48 /* JSONKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 632CACDE1D7BC7710045FB48 /* JSONKit.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -766,10 +766,11 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = T89U2FLA7Z;
 				INFOPLIST_FILE = MyTestApp/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = kkqin.MyTestApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -781,10 +782,11 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = T89U2FLA7Z;
 				INFOPLIST_FILE = MyTestApp/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = kkqin.MyTestApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

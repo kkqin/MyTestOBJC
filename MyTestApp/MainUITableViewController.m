@@ -41,13 +41,11 @@
 {
     [super viewDidLoad];
     
-    //[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(turnToSelfDetailViewCtrl:) name:@"AskUserHandlerLink" object:nil];
-    
     self.view.backgroundColor = [UIColor whiteColor];
     [self.tableView registerClass:[MsgUITableViewCell class] forCellReuseIdentifier:@"new"];
     
     self.msgArray = [[NSMutableArray alloc] init];
-    
+    self.title = @"HOME";
     MessageBL * mbl = [[MessageBL alloc] retain];
     mbl.delegateForMessagesBL = self;
     [mbl getAllMessagesBL];
@@ -73,7 +71,6 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 //高度
 -(CGFloat) tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    //NSLog(@"heightForRowAtIndexPath H");
     if(self.msgArray.count <= 0)
         return 0;
     else
@@ -83,7 +80,6 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 //分区
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    //NSLog(@"numberOfSectionsInTableView S %lu", (unsigned long)self.msgArray.count);
     return 1;
 }
 
@@ -91,7 +87,6 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 - (NSInteger)tableView:(UITableView *)tableView
 numberOfRowsInSection:(NSInteger)section
 {
-    //NSLog(@"NumberOfRowsInSection R");
     return self.msgArray.count;
 }
 
@@ -103,7 +98,6 @@ numberOfRowsInSection:(NSInteger)section
     return cell;
 }
 
-//
 -(void) getAllMessages:(NSMutableArray<MessageItem *> *)m_array :(NSString*)str
 {
     self.msgArray = m_array;
@@ -135,12 +129,5 @@ numberOfRowsInSection:(NSInteger)section
     [self.tableView reloadData];
     [freshCtl endRefreshing];
 }
-
-//-(void) turnToSelfDetailViewCtrl:(NSNotification*) notification
-//{
-//    NSString *str = [notification object];//通过这个获取到传递的对象
-//    SelfDetailTableViewController *sDetail = [[SelfDetailTableViewController alloc] init:str];
-//    [self presentViewController:sDetail animated:true completion:nil];
-//}
 
 @end
